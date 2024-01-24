@@ -27,7 +27,7 @@ public class BookingView implements View {
     }
 
     @Override
-    public void showReservationTableResult(int reservationNo) {
+    public void showReservationTableResult(int reservationN) {
         if (reservationNo > 0){
             System.out.printf("Столик успешно забронирован. Номер брони: #%d\n", reservationNo);
         }
@@ -44,7 +44,8 @@ public class BookingView implements View {
             }
     }
 
-    public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-
+    public void changeReservationTable(int tableNumber, Date newDate, int numberOfGuests, String customerName) {
+        model.changeReservation(tableNumber, newDate, numberOfGuests, customerName);
+        presenter.updateTablesView();
     }
 }
